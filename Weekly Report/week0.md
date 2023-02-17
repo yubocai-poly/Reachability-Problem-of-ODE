@@ -21,6 +21,7 @@ However, we find that for this system, there exists $x^3$. Quadratization is to 
 
 ### 3. Quadratization with QBee
 Here we use the QBee package to quadratize the system, for example, the following system:
+
 $$
 x'=-x+ax^{3}
 $$

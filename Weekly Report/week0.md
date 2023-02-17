@@ -45,13 +45,16 @@ Introduced variables:
 w{0} = x**2                                         
 ```
 From the result, we can introduce a new variable $w_{0}=y=x^2$ to quadratize the system. Then for the original equation, we have:
+
 $$
 \begin{aligned}
 x' &= x'=-x+ax^{3} \\
 &= -x +axy
 \end{aligned}
 $$
+
 However, since we also introduce a new variable $w_{0}=y=x^2$, we can also need to compute the derivative of $w_{0}$ in order to find the ODE of it.
+
 $$
 \begin{aligned}
 y' &= 2x x' = 2x(-x+ax^{3}) \\
@@ -59,13 +62,16 @@ y' &= 2x x' = 2x(-x+ax^{3}) \\
 &= -2y +2ay^2
 \end{aligned}
 $$
+
 Then we can combine the two equations to get the quadratized system:
+
 $$
 \begin{cases}
 y' = -2y+2ay^{2}\\
 x' = -x + axy
 \end{cases}
 $$
+
 Here, on the right hand side, we can see that all the variables are in degree at most 2.
 
 ---
@@ -81,6 +87,7 @@ x'' = kx+ax^{3}
 $$
 (we set $x_{0}=x$ and $x_{1}=x'$). Then we have the system of the ODEs:
 $$
+
 \begin{cases}
 x_{0}'=x_1\\
 x_{1}'=kx_{0}+ax_{0}^{3}
@@ -113,6 +120,7 @@ w_{3} = x0**2
 ```
 
 From the program we introduce 3 variables:
+
 $$
 \begin{cases}
 w_{0} = x_{0}^3\\
@@ -120,7 +128,9 @@ w_{1} = x_{0} x_{0}'\\
 w_{2} = x_{0}^2
 \end{cases}
 $$
+
 Then we got the following:
+
 $$
 \begin{cases}
 x_{0}'=x_1\\
@@ -128,12 +138,14 @@ x_{1}'=kx_{0}+aw_{0}
 \end{cases}
 $$
 Now we need to dealing with $w_{0}$, $w_{1}$ and $w_{2}$, we have the following computations:
+
 $$
 \begin{aligned}
 w_{0}' &= 3x_{0}^2 x_{0}' \\
 &= 3 w_{2} x_{1} \\
 \end{aligned}
 $$
+
 $$
 \begin{aligned}
 w_{1}' &= x_{0} x_{0}'' + x_{0}' x_{0}' \\
@@ -145,7 +157,9 @@ $$
 $$
 w_{2}' = 2x_{0} x_{0}' = 2 w_{1}
 $$
+
 Therefore, we have the following system:
+
 $$
 \begin{cases}
 x_{0}'=x_1\\

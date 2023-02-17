@@ -85,9 +85,10 @@ We have the third system of following form:
 $$
 x'' = kx+ax^{3}
 $$
-(we set $x_{0}=x$ and $x_{1}=x'$). Then we have the system of the ODEs:
-$$
 
+(we set $x_{0}=x$ and $x_{1}=x'$). Then we have the system of the ODEs:
+
+$$
 \begin{cases}
 x_{0}'=x_1\\
 x_{1}'=kx_{0}+ax_{0}^{3}

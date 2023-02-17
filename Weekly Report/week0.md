@@ -12,20 +12,19 @@
 
 ### 2. Introduction to Quadratization Problem
 For a nonlinear ODE system, on the right hand, we have varaible with degree $\geq 2$. For example, the following system is nonlinear:
+
 $$
 x' = -x + x^3 + y^2
 $$
+
 However, we find that for this system, there exists $x^3$. Quadratization is to introduce new variables in order to decrease the degree of the system into at most 2. Notice that $xy$ is in degree 2 but $xy^2$ is in degree 3.
 
 ### 3. Quadratization with QBee
 Here we use the QBee package to quadratize the system, for example, the following system:
-<div style="background-color:lightblue;margin:20px;padding:10px;border-radius:10px;border-width:2px;border-color:black;box-shadow:5px 5px;width:96%">
-
 $$
 x'=-x+ax^{3}
 $$
 
-</div>
 
 ```python
 a = parameters("a")
@@ -74,7 +73,6 @@ Here, on the right hand side, we can see that all the variables are in degree at
 ### 4. Other Examples
 For more examples and detailed code, please refer to the [examples](https://github.com/yubocai-poly/Reachability-Problem-of-ODE/blob/main/quadra_code/quadratization.ipynb). Here I only show the quadratization of the following system:
 
-<div style="background-color:lightblue;margin:20px;padding:10px;border-radius:10px;border-width:2px;border-color:black;box-shadow:5px 5px;width:96%">
 
 We have the third system of following form:
 
@@ -88,7 +86,7 @@ x_{0}'=x_1\\
 x_{1}'=kx_{0}+ax_{0}^{3}
 \end{cases}
 $$
-</div>
+
 
 ```python
 k, a = parameters("k, a")

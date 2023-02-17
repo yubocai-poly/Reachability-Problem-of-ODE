@@ -117,8 +117,8 @@ _solve_system_carlin(N=2, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=10.0)
 time_NoError_N2_alpha3 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=10.0)
 
 # including error bounds, N = 5
-_solve_system_carlin(N=5, T=Tmax, δ=0.1, radius0=rr0, bloat=true, alpha=2.0)
-time_Error_N5 = @elapsed _solve_system_carlin(N=5, T=Tmax, δ=0.01, radius0=rr0, bloat=true, alpha=2.0)
+# _solve_system_carlin(N=5, T=Tmax, δ=0.1, radius0=rr0, bloat=true, alpha=2.0)
+# time_Error_N5 = @elapsed _solve_system_carlin(N=5, T=Tmax, δ=0.01, radius0=rr0, bloat=true, alpha=2.0)
 
 print("result of N=2, Alpha=2.0, No Error: ", (time_NoError_N2_alpha1), '\n')
 print("result of N=2, Alpha=5.0, No Error: ", (time_NoError_N2_alpha2), '\n')
@@ -126,7 +126,7 @@ print("result of N=2, Alpha=10.0, No Error: ", (time_NoError_N2_alpha3), '\n')
 # print("result of N=5, Error", (time_Error_N5), '\n')
 # print("result of TM", (time_TM), '\n')
 
-print(io, "The first Quadratization Model, Carleman, no error bound, N=2, $(time_NoError_N2)\n")
+# print(io, "The first Quadratization Model, Carleman, no error bound, N=2, $(time_NoError_N2)\n")
 # print(io, "The first Quadratization Model, Carleman, error bound, N=5, $(time_Error_N5)\n")
 # print(io, "The first Quadratization Model, Taylor Models, $(time_TM)\n")
 
@@ -163,7 +163,7 @@ function figure_System_NoError()
               
 end
 
-# fig = figure_System_NoError()
+fig = figure_System_NoError()
 # savefig(fig, joinpath(TARGET_FOLDER, "figure_1a_non error.pdf"))
 
 # figure with error bounds
@@ -210,52 +210,7 @@ function figure_System_withError()
   return fig
 end
 
-fig = figure_System_withError()
-savefig(fig, joinpath(TARGET_FOLDER, "figure_1b_error.pdf"))
+# fig = figure_System_withError()
+# savefig(fig, joinpath(TARGET_FOLDER, "figure_1b_error.pdf"))
 
-# figure with error bounds
-function figure_System_withError()
 
-  Tmax = 10.0
-  rr0 = 0.0
-  solN4_alpha1 = _solve_system_carlin(N=4, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=2.0)
-  solN4_alpha2 = _solve_system_carlin(N=4, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=5.0)
-  solN4_alpha3 = _solve_system_carlin(N=4, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=10.0)
-
-  solN4_alpha1_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.1, radius0=rr0, bloat=true, resets=[4.0], alpha=2.0)
-  solN4_alpha2_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.1, radius0=rr0, bloat=true, resets=[4.0], alpha=5.0)
-  solN4_alpha3_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.1, radius0=rr0, bloat=true, resets=[4.0], alpha=10.0)
-
-  fig = plot(legend=:topright, xlab = L"x", ylab = L"y",
-              legendfontsize=10,
-              tickfont=font(25, "Times"),
-              guidefontsize=25,
-              xguidefont=font(15, "Times"),
-              yguidefont=font(15, "Times"),
-              bottom_margin=5mm,
-              left_margin=5mm,
-              right_margin=5mm,
-              top_margin=5mm,
-              size=(800, 600))
-
-  # carleman linearization solution
-
-  plot!(fig, solN4_alpha1,  vars=(0, 1), color=:red, linewidth=2, label="Second variable Alpha = 2.0")
-
-  # plot!(fig, solN4_alpha2,  vars=(0, 1), color=:blue, linewidth=2, label="Second variable Alpha = 5.0")
-
-  # plot!(fig, solN4_alpha3,  vars=(0, 1), color=:green, linewidth=2, label="Second variable Alpha = 10.0")
-
-  # carleman linearization solution with error bounds
-
-  plot!(fig, solN4_alpha1_bloat,  vars=(0, 1), color=:aquamarine, linewidth=2, linestyle=:dash, label="Second variable Alpha = 2.0")
-
-  # plot!(fig, solN4_alpha2_bloat,  vars=(0, 1), color=:darksalmon, linewidth=2, linestyle=:dash, label="Second variable Alpha = 5.0")
-
-  # plot!(fig, solN4_alpha3_bloat,  vars=(0, 1), color=:darkseagreen, linewidth=2, linestyle=:dash, label="Second variable Alpha = 10.0")
-
-  return fig
-end
-
-fig = figure_System_withError()
-savefig(fig, joinpath(TARGET_FOLDER, "figure_1c_error.pdf"))

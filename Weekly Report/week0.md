@@ -137,6 +137,7 @@ x_{0}'=x_1\\
 x_{1}'=kx_{0}+aw_{0}
 \end{cases}
 $$
+
 Now we need to dealing with $w_{0}$, $w_{1}$ and $w_{2}$, we have the following computations:
 
 $$
@@ -154,6 +155,7 @@ w_{1}' &= x_{0} x_{0}'' + x_{0}' x_{0}' \\
 & = x_{1}^2 + k w_{2} + ak w_{2}^2\\
 \end{aligned}
 $$
+
 $$
 w_{2}' = 2x_{0} x_{0}' = 2 w_{1}
 $$

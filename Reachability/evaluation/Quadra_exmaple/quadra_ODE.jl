@@ -131,6 +131,7 @@ function figure_System_NoError()
   rr0 = 0.0
   solN4_a1 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=1.0)
   solN4_a2 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
+  solN4_a3 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=10.0)
 
 
   fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations (with no error bounds))",
@@ -145,20 +146,20 @@ function figure_System_NoError()
               top_margin=5mm,
               size=(800, 600))
   
-
-  plot!(fig, solN4_a2,  vars=(0, 1), color=:blue, lc=:blue, linewidth=2, label=L"x'=-x+axy \textrm{, a=5.0, N=4, } \alpha=1.0")
   plot!(fig, solN4_a1,  vars=(0, 1), color=:red, lc=:red, linewidth=2, label=L"x'=-x+axy \textrm{, a=1.0, N=4, } \alpha=1.0")
-  plot!(fig, solN4_a2,  vars=(0, 2), color=:orange, lc=:orange, linewidth=2, label=L"y'=-2y+2ay^{2} \textrm{, a=5.0, N=4, } \alpha=1.0")
+  plot!(fig, solN4_a2,  vars=(0, 1), color=:blue, lc=:blue, linewidth=2, label=L"x'=-x+axy \textrm{, a=5.0, N=4, } \alpha=1.0")
+  plot!(fig, solN4_a3,  vars=(0, 1), color=:aquamarine, lc=:aquamarine, linewidth=2, linestyle=:dash, label=L"x'=-x+axy \textrm{, a=10.0, N=4, } \alpha=1.0")
   plot!(fig, solN4_a1,  vars=(0, 2), color=:green, lc=:green, linewidth=2, label=L"y'=-2y+2ay^{2} \textrm{, a=1.0, N=4, } \alpha=1.0")
-  
+  plot!(fig, solN4_a2,  vars=(0, 2), color=:orange, lc=:orange, linewidth=2, label=L"y'=-2y+2ay^{2} \textrm{, a=5.0, N=4, } \alpha=1.0")
+  plot!(fig, solN4_a3,  vars=(0, 2), color=:darksalmon, lc=:darksalmon, linewidth=2, linestyle=:dash, label=L"y'=-2y+2ay^{2} \textrm{, a=10.0, N=4, } \alpha=1.0")
 
   return fig
               
 end
 
-# fig = figure_System_NoError()
-# display(fig)
-# savefig(fig, joinpath(TARGET_FOLDER, "figure_1a_non error.pdf"))
+fig = figure_System_NoError()
+display(fig)
+savefig(fig, joinpath(TARGET_FOLDER, "figure_1a_non error.pdf"))
 
 # figure with error bounds
 function figure_System_withError()
@@ -198,8 +199,8 @@ function figure_System_withError()
   return fig
 end
 
-fig = figure_System_withError()
-display(fig)
+# fig = figure_System_withError()
+# display(fig)
 # savefig(fig, joinpath(TARGET_FOLDER, "figure_1b_error.pdf"))
 
 

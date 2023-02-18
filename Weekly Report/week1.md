@@ -52,4 +52,26 @@ $$
 
 where we have the basis for the nonlinear part is $[x^{2}, xy, yx, y^{2}]$. Since we use quadratization algorithsm to quadratize the system, we should at most have this 4 basis.
 
-Therefore, we can use the algorithsm from the paper **Epidemic model(SEIR)** to analyse this emaple system. The code is [here]().
+Therefore, we can use the algorithsm from the paper **Epidemic model(SEIR)** to analyse this emaple system. The code is [here](https://github.com/JuliaReach/RP21_RE/blob/main/evaluation/SEIR/SEIR.jl).
+
+---
+
+### 3. Results of the plot without Error Bound
+
+We set the Carlimen Linearization matrix as following
+```julia
+function system_carlin(a, alpha)
+  F1 = zeros(2, 2)
+  F1[1, 1] = -1
+  F1[2, 2] = -2 / alpha
+
+  F2 = zeros(2, 4) # [x, x⊗x]
+  F2[1, 2] = 2 * a / alpha
+  F2[2, 4] = a
+
+  return F1, F2
+end
+```
+We apply the method `_solve_system_carlin(; N=4, T=30.0, δ=0.1, radius0=0, bloat=false, resets=nothing, alpha, a)` and plot the graph. Here in order to have better numerical plot, we set $\delta=0.01$, Tmax = 10 and N=4. Here we only change the parameter $a$ and keep the parameter $\alpha$ as 1. The have the plot as following:
+
+ <img src="../evaluation/results/week1_plot/figure_1a_non error.pdf" width = "300" height = "200" alt="图片名称" align=center />

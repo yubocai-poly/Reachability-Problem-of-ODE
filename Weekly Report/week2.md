@@ -115,3 +115,7 @@ $$
 & = \left\|x_0\right\|^{N+1} 2b^{N} \left(1-e^{-t}\right)^{N}
 \end{aligned}
 $$
+
+$$
+\| x \|
+$$

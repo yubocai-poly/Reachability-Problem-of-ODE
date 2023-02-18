@@ -19,8 +19,8 @@ From quadratization, we know that we can introduce a new variable $w_{0}=y=x^2$ 
 
 $$
 \begin{cases}
-y' = -2y+2ay^{2}\\
-x' = -x + axy
+x' = -x + axy\\
+y' = -2y+2ay^{2}
 \end{cases}
 $$
 

@@ -11,7 +11,7 @@ y' = -2y+2ay^{2}
 \end{cases}
 $$
 
-where we introduced a new variable $w_{0}=y=x^{2}$ to quadratize the system. Then, we studied the reachability analysis of the system using the Carleman linearization. 
+where we introduced a new variable $w_{0}=y=x^{2}$ to quadratize the system. Then, we studied the reachability analysis of the system using the Carleman linearization.
 
 Now we want to take a step further and study the optimal quadratization for the system which also produce the least error bound in the reachability analysis. For optimal quadratization, we have several options: $w_{0}=y=x^{2}$ or $w_{0}=y=\alpha x^{2}$ which are equivalent. If we take $w_{0}=y=\alpha x^{2}$, then we have the following computation:
 
@@ -51,13 +51,13 @@ $$
 
 ### 2. Computing the Error Bound and Reachability
 
-From previous analysis,  we have the $F_1 \in \mathbb{R}^{n \times n}$ matrix for linear part:
+From previous analysis, we have the $F_1 \in \mathbb{R}^{n \times n}$ matrix for linear part:
 
 $$
 F_1=
 \begin{bmatrix}
 -1 & 0 \\
-0 & -2  
+0 & -2
 \end{bmatrix}.
 $$
 
@@ -76,7 +76,7 @@ For matrix $F_1$ we have the eigenvalues $\lambda_1 = -1$ and $\lambda_2 = -2$. 
 **Definition 1.** System is said to be weakly nonlinear if the ratio
 
 $$
-R:=\frac{\left\|x_0\right\|\left\|F_2\right\|}{\left|\Re\left(\lambda_1\right)\right|}
+R:=\frac{\lVert x_0 \rVert \lVert F_2 \rVert}{\left|\Re\left(\lambda_1\right)\right|}
 $$
 
 satisfies $R<1$.
@@ -90,7 +90,7 @@ $$
 **Theorem 1 ([30, Corollary 1])**. Assuming that (1) is weakly nonlinear and dissipative, the error bound associated with the linearized problem (2) truncated at order $N$ satisfies
 
 $$
-\left\|\eta_1(t)\right\| \leq \varepsilon(t):=\left\|x_0\right\| R^N\left(1-e^{\Re\left(\lambda_1\right) t}\right)^N,
+\lVert \eta_1(t) \rVert \leq \varepsilon(t):=\lVert x_0 \rVert R^N\left(1-e^{\Re\left(\lambda_1\right) t}\right)^N,
 $$
 
 with $R$ as defined in (5). This error bound holds for all $t \geq 0$.
@@ -98,24 +98,20 @@ with $R$ as defined in (5). This error bound holds for all $t \geq 0$.
 Then we compute the error bound for our example system:
 
 $$
-\left\|F_2\right\| = sup(F_2) = 2b
+\rVert\lVert F_2 \rVert = sup(F_2) = 2b
 $$
 
 Then we have for $R$:
 
 $$
-R:=\frac{\left\|x_0\right\|\left\|F_2\right\|}{\left|\Re\left(\lambda_1\right)\right|} = 2b \left\|x_0\right\| 
+R:=\frac{\lVert x_0 \rVert \lVert F_2 \rVert}{\left|\Re\left(\lambda_1\right)\right|} = 2b \lVert x_0 \rVert
 $$
 
 Therefore, we have the formula for error bound:
 
 $$
 \begin{aligned}
-\left\|\eta_1(t)\right\| \leq \varepsilon(t)& :=\left\|x_0\right\| R^N\left(1-e^{\Re\left(\lambda_1\right) t}\right)^N \\
-& = \left\|x_0\right\|^{N+1} 2b^{N} \left(1-e^{-t}\right)^{N}
+\lVert \eta_{1}(t) \rVert \leq \varepsilon(t)& :=\lVert x_0 \rVert R^N\left(1-e^{\Re\left(\lambda_1\right) t}\right)^N \\
+& = \lVert x_0 \rVert ^{N+1} 2b^{N} \left(1-e^{-t}\right)^{N}
 \end{aligned}
-$$
-
-$$
-\lVert x \rVert 
 $$

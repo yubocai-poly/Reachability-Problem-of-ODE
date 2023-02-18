@@ -1,0 +1,1 @@
+## Week 2 Report - Optimal Quadratization ($\alpha$ value) for Reachability Analysis of the first Example System

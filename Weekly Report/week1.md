@@ -74,10 +74,20 @@ end
 ```
 We apply the method `_solve_system_carlin(; N=4, T=30.0, δ=0.1, radius0=0, bloat=false, resets=nothing, alpha, a)` and plot the graph. Here in order to have better numerical plot, we set $\delta=0.01$, Tmax = 10 and N=4. Here we only change the parameter $a$ and keep the parameter $\alpha$ as 1. The have the plot as following:
 
- <img src="./pic/figure_1a_non_error.png" width = "800"  alt="图片名称" align=center/>
+ <img src="./pic/figure_1a_non_error.jpg" width = "800"  alt="图片名称" align=center/>
 
 Here we can find the algorithms works pretty well on the system.
 
 ---
 
 ### 4. Results of the plot with Error Bound
+
+Here we apply the error bound method to the system. We have the following result of the plot:
+
+ <img src="./pic/figure_1b_error.jpg" width = "800"  alt="图片名称" align=center/>
+
+The green part is the error bound. We can see that the error bound is relatively small. The reachability analysis works pretty well on the system with $a=1$ and $\alpha=1$. However, when we change the parameter $a$ to 2, we have the following plot:
+
+ <img src="./pic/figure_1c_error.jpg" width = "800"  alt="图片名称" align=center/>
+
+We can see that the error bound is relatively large. The reason is that the system is not stable when $a=2$. And if we change $a=5$, the algorithms will complain that our $R$ of the reachabilit analysis is $1.4>1$ which not meet the requirement of reachability analysis. Then we gonna study the optimal situation for quadratization which meet the requirement of reachability analysis.

@@ -134,7 +134,7 @@ function figure_System_NoError()
   solN4_a3 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=10.0)
 
 
-  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations (with no error bounds))",
+  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations (with no error bounds)",
               legendfontsize=12,
               tickfont=font(10, "Times"),
               guidefontsize=10,
@@ -170,7 +170,7 @@ function figure_System_withError()
   solN4_a1 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=1.0)
   solN4_a1_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, resets=[4.0], alpha=1.0, a=1.0)
 
-  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations (with error bounds, no comparison))",
+  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations (with error bounds, \n no comparison)",
               legendfontsize=12,
               tickfont=font(10, "Times"),
               guidefontsize=10,
@@ -226,7 +226,7 @@ function figure_System_withError()
 
   # carleman linearization solution with error bounds
   plot!(fig, solN4_a2_bloat,  vars=(0, 1), color=:lightgrey, lc=:lightgrey, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=2.0, N=4, } \alpha=1.0")
-  plot!(fig, solN4_a2_bloat,  vars=(0, 2), color=:lightgrey, lc=:lightgrey, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=2.0, N=4, } \alpha=1.0")
+  plot!(fig, solN4_a2_bloat,  vars=(0, 2), color=:lightgrey, lc=:lightgrey, linewidth=2, linestyle=:dash, label=L"\textrm{error(y), a=2.0, N=4, } \alpha=1.0")
   plot!(fig, solN4_a1_bloat,  vars=(0, 1), color=:green, lc=:green, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=4, } \alpha=1.0")
   plot!(fig, solN4_a1_bloat,  vars=(0, 2), color=:green, lc=:green, linewidth=2, linestyle=:dash, label=L"\textrm{error(y), a=1.0, N=4, } \alpha=1.0")
 

@@ -19,4 +19,4 @@ docs/site/
 .DS_Store
 
 # ingore gr-temp folder
-gr-temp/*
+Reachability/gr-temp/*

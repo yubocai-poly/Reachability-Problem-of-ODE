@@ -58,6 +58,9 @@ function _solve_system_carlin(; N=4, T=30.0, δ=0.1, radius0=0, bloat=false, res
     @time sol = _solve_CARLIN_resets(X0, F1, F2; resets=resets, alg=alg, N=N, T=T, bloat=bloat)
   end
 
+  print("R = ", R, '\n')
+  print("Re_lambda1 = ", Re_lambda1, '\n')
+
   return sol
 
 end
@@ -106,14 +109,14 @@ rr0 = 0.0
 
 # no error bounds, N = 2
 _solve_system_carlin(N=2, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=1.0)
-time_NoError_N2_a1 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=2.0, a=1.0)
+time_NoError_N2_a1 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=1.0)
 
 _solve_system_carlin(N=2, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
-time_NoError_N2_a2 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=2.0, a=5.0)
+time_NoError_N2_a2 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
 
 # no error bounds, N = 4
 _solve_system_carlin(N=4, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
-time_NoError_N4_a2 = @elapsed _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=2.0, a=5.0)
+time_NoError_N4_a2 = @elapsed _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
 
 # including error bounds, N = 5
 _solve_system_carlin(N=5, T=Tmax, δ=0.1, radius0=rr0, bloat=true, alpha=1.0, a=1.0)
@@ -157,9 +160,9 @@ function figure_System_NoError()
               
 end
 
-fig = figure_System_NoError()
-display(fig)
-savefig(fig, joinpath(TARGET_FOLDER, "figure_1a_non_error.pdf"))
+# fig = figure_System_NoError()
+# display(fig)
+# savefig(fig, joinpath(TARGET_FOLDER, "figure_1a_non_error.pdf"))
 
 
 # figure with error bounds, no comparison
@@ -194,9 +197,9 @@ function figure_System_withError()
   return fig
 end
 
-fig = figure_System_withError()
-display(fig)
-savefig(fig, joinpath(TARGET_FOLDER, "figure_1b_error.pdf"))
+# fig = figure_System_withError()
+# display(fig)
+# savefig(fig, joinpath(TARGET_FOLDER, "figure_1b_error.pdf"))
 
 
 # figure with error bounds with comparison
@@ -239,8 +242,8 @@ function figure_System_withError()
   return fig
 end
 
-fig = figure_System_withError()
-display(fig)
-savefig(fig, joinpath(TARGET_FOLDER, "figure_1c_error.pdf"))
+# fig = figure_System_withError()
+# display(fig)
+# savefig(fig, joinpath(TARGET_FOLDER, "figure_1c_error.pdf"))
 
 

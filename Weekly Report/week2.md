@@ -55,9 +55,6 @@ From previous analysis,  we have the $F_1 \in \mathbb{R}^{n \times n}$ matrix fo
 
 $$
 F_1=
-\begin{matrix}
-x \\ y
-\end{matrix}
 \begin{bmatrix}
 -1 & 0 \\
 0 & -2  
@@ -68,9 +65,6 @@ And for the nonlinear part we have $F_2 \in \mathbb{R}^{n \times n^{2}}$ matrix:
 
 $$
 F_2=
-\begin{matrix}
-x \\ y
-\end{matrix}
 \begin{bmatrix}
 0 & 2b & 0 & 0\\
 0 & 0 & 0 & b
@@ -100,3 +94,24 @@ $$
 $$
 
 with $R$ as defined in (5). This error bound holds for all $t \geq 0$.
+
+Then we compute the error bound for our example system:
+
+$$
+\left\|F_2\right\| = sup(F_2) = 2b
+$$
+
+Then we have for $R$:
+
+$$
+R:=\frac{\left\|x_0\right\|\left\|F_2\right\|}{\left|\Re\left(\lambda_1\right)\right|} = 2b \left\|x_0\right\| 
+$$
+
+Therefore, we have the formula for error bound:
+
+$$
+\begin{aligned}
+\left\|\eta_1(t)\right\| \leq \varepsilon(t)& :=\left\|x_0\right\| R^N\left(1-e^{\Re\left(\lambda_1\right) t}\right)^N \\
+& = \left\|x_0\right\|^{N+1} 2b^{N} \left(1-e^{-t}\right)^{N}
+\end{aligned}
+$$

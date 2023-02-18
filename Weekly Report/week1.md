@@ -28,9 +28,6 @@ Then we use the Carleman linearization to linearize the system. Follow the algor
 
 $$
 F_1=
-\begin{matrix}
-x \\ y
-\end{matrix}
 \begin{bmatrix}
 -1 & 0 \\
 0 & -2  
@@ -41,9 +38,6 @@ And for the nonlinear part we have $F_2 \in \mathbb{R}^{n \times n^{2}}$ matrix:
 
 $$
 F_2=
-\begin{matrix}
-x \\ y
-\end{matrix}
 \begin{bmatrix}
 0 & 2a & 0 & 0\\
 0 & 0 & 0 & a

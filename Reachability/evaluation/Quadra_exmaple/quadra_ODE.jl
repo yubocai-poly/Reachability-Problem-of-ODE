@@ -164,6 +164,7 @@ function figure_System_NoError()
 end
 
 fig = figure_System_NoError()
+display(fig)
 # savefig(fig, joinpath(TARGET_FOLDER, "figure_1a_non error.pdf"))
 
 # figure with error bounds

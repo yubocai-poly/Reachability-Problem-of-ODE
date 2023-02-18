@@ -98,7 +98,7 @@ with $R$ as defined in (5). This error bound holds for all $t \geq 0$.
 Then we compute the error bound for our example system:
 
 $$
-\rVert\lVert F_2 \rVert = sup(F_2) = 2b
+\lVert F_2 \rVert = sup(F_2) = 2b
 $$
 
 Then we have for $R$:

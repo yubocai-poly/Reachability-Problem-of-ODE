@@ -74,4 +74,6 @@ end
 ```
 We apply the method `_solve_system_carlin(; N=4, T=30.0, δ=0.1, radius0=0, bloat=false, resets=nothing, alpha, a)` and plot the graph. Here in order to have better numerical plot, we set $\delta=0.01$, Tmax = 10 and N=4. Here we only change the parameter $a$ and keep the parameter $\alpha$ as 1. The have the plot as following:
 
- <img src="../evaluation/results/week1_plot/figure_1a_non error.pdf" width = "300" height = "200" alt="图片名称" align=center />
+ <img src="./pic/figure_1a_non_error.png" width = "700"  alt="图片名称" align=center />
+
+Here we can find the algorithms works pretty well on the system.

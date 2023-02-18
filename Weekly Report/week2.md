@@ -80,18 +80,23 @@ $$
 For matrix $F_1$ we have the eigenvalues $\lambda_1 = -1$ and $\lambda_2 = -2$. Then we got $\Re\left(\lambda_1\right)=-1$ (the real part of $\lambda_1$). We cite the [paper](https://arxiv.org/pdf/2108.10390.pdf) for reachabiliy analysis, we have following part:
 
 **Definition 1.** System is said to be weakly nonlinear if the ratio
+
 $$
 R:=\frac{\left\|x_0\right\|\left\|F_2\right\|}{\left|\Re\left(\lambda_1\right)\right|}
 $$
+
 satisfies $R<1$.
 
 **Definition 2.** System (1) is said to be dissipative if $\Re\left(\lambda_1\right)<0$ (i.e., the real part of all eigenvalues is negative).
+
 $$
 \text{The conditions } \Re\left(\lambda_1\right)<0 \text{ and } R<1 \text{ ensure arbitrary-time convergence.}
 $$
 
 **Theorem 1 ([30, Corollary 1])**. Assuming that (1) is weakly nonlinear and dissipative, the error bound associated with the linearized problem (2) truncated at order $N$ satisfies
+
 $$
 \left\|\eta_1(t)\right\| \leq \varepsilon(t):=\left\|x_0\right\| R^N\left(1-e^{\Re\left(\lambda_1\right) t}\right)^N,
 $$
+
 with $R$ as defined in (5). This error bound holds for all $t \geq 0$.

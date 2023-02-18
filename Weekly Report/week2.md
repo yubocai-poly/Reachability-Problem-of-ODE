@@ -115,3 +115,15 @@ $$
 & = \lVert x_0 \rVert ^{N+1} 2b^{N} \left(1-e^{-t}\right)^{N}
 \end{aligned}
 $$
+
+Since $N$, $\lVert x_0 \rVert$ are all constant, also function $1-e^{-t}$ is decreasing function. From this we can see that as smaller as $b$ is, the error bound will be smaller. Therefore, we can conclude that the optimal quadratization for the system is $w_{0}=y=\alpha x^{2}$ with $\alpha$, the parameter $\alpha$ we need to choose as large as possible.
+
+---
+
+### 3. From numerical analysis to see the result
+
+We have the plot for the error bound with different $b$ value:
+
+<img src="./pic/figure_2a_error.jpg" width = "800"  alt="图片名称" align=center/>
+
+From the plot we can see that the error bound is decreasing as $b$ is decreasing. Here we use the Julia code `resets=[4.0]` or `resets=[5.0]` to set the peak of the error bound. The error bound should increase as $t$ increases. The plot also verify our conclusion that the optimal quadratization is $w_{0}=y=\alpha x^{2}$ with $\alpha$, the parameter $\alpha$ we need to choose as large as possible.

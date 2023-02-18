@@ -247,3 +247,49 @@ end
 # savefig(fig, joinpath(TARGET_FOLDER, "figure_1c_error.pdf"))
 
 
+# figure with error bounds with comparison
+function figure_System_withError()
+
+  Tmax = 10.0
+  rr0 = 0.0
+  solN4_a1 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=1.0)
+  solN4_a1_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, resets=[4.0], alpha=1.0, a=1.0)
+
+  solN4_a2 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=2.0)
+  solN4_a2_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, resets=[5.0], alpha=1.0, a=2.0)
+
+  solN4_a3 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=1.2)
+  solN4_a3_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, resets=[4.0], alpha=1.0, a=1.5)
+
+  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations (with error bounds, \n with comparison of different values of a)",
+              legendfontsize=12,
+              tickfont=font(10, "Times"),
+              guidefontsize=10,
+              xguidefont=font(10, "Times"),
+              yguidefont=font(10, "Times"),
+              xlims= (1.0, 6.0),
+              ylims = (-0.02, 0.05),
+              bottom_margin=5mm,
+              left_margin=5mm,
+              right_margin=5mm,
+              top_margin=5mm,
+              size=(800, 600))
+
+  # carleman linearization solution with error bounds
+  plot!(fig, solN4_a2_bloat,  vars=(0, 1), color=:lightgrey, lc=:lightgrey, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=2.0, N=4, } \alpha=1.0")
+  plot!(fig, solN4_a3_bloat,  vars=(0, 1), color=:lightblue, lc=:lightblue, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.5, N=4, } \alpha=1.0")
+  plot!(fig, solN4_a1_bloat,  vars=(0, 1), color=:green, lc=:green, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=4, } \alpha=1.0")
+
+  # carleman linearization solution 
+  plot!(fig, solN4_a1,  vars=(0, 1), color=:orange, lc=:orange, linewidth=2, label=L"x'=-x+axy \textrm{, a=1.0, N=4, } \alpha=1.0")
+  plot!(fig, solN4_a2,  vars=(0, 1), color=:red, lc=:red, linewidth=2, label=L"x'=-x+axy \textrm{, a=2.0, N=4, } \alpha=1.0")
+  plot!(fig, solN4_a3,  vars=(0, 1), color=:darksalmon, lc=:darksalmon, linewidth=2, label=L"x'=-x+axy \textrm{, a=1.5, N=4, } \alpha=1.0")
+
+
+  return fig
+end
+
+fig = figure_System_withError()
+display(fig)
+savefig(fig, joinpath(TARGET_FOLDER, "figure_2a_error.pdf"))
+

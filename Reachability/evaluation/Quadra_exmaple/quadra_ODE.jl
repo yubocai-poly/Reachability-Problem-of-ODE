@@ -106,20 +106,20 @@ rr0 = 0.0
 _solve_system_carlin(N=2, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=1.0)
 time_NoError_N2_a1 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=1.0)
 
-# _solve_system_carlin(N=2, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
-# time_NoError_N2_a2 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
+_solve_system_carlin(N=2, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
+time_NoError_N2_a2 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
 
-# # no error bounds, N = 4
-# _solve_system_carlin(N=4, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
-# time_NoError_N4_a2 = @elapsed _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
+# no error bounds, N = 4
+_solve_system_carlin(N=4, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
+time_NoError_N4_a2 = @elapsed _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
 
-# # including error bounds, N = 5
-# _solve_system_carlin(N=5, T=Tmax, δ=0.1, radius0=rr0, bloat=true, alpha=1.0, a=1.0)
-# time_Error_N5 = @elapsed _solve_system_carlin(N=5, T=Tmax, δ=0.01, radius0=rr0, bloat=true, alpha=1.0, a=1.0)
+# including error bounds, N = 5
+_solve_system_carlin(N=5, T=Tmax, δ=0.1, radius0=rr0, bloat=true, alpha=1.0, a=1.0)
+time_Error_N5 = @elapsed _solve_system_carlin(N=5, T=Tmax, δ=0.01, radius0=rr0, bloat=true, alpha=1.0, a=1.0)
 
-# print(io, "result of N=2, Alpha=1.0, a=1.0, No Error, Computation time: ", (time_NoError_N2_a1), '\n')
-# print(io, "result of N=2, Alpha=1.0, a=5.0, No Error, Computation time: ", (time_NoError_N2_a2), '\n')
-# print(io, "result of N=4, Alpha=1.0, a=5.0, No Error, Computation time: ", (time_NoError_N4_a2), '\n')
+print(io, "result of N=2, Alpha=1.0, a=1.0, No Error, Computation time: ", (time_NoError_N2_a1), '\n')
+print(io, "result of N=2, Alpha=1.0, a=5.0, No Error, Computation time: ", (time_NoError_N2_a2), '\n')
+print(io, "result of N=4, Alpha=1.0, a=5.0, No Error, Computation time: ", (time_NoError_N4_a2), '\n')
 
 
 # Ploting the results
@@ -132,7 +132,7 @@ solN4_a20 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false,
 # figure with NO error bounds, plot for x
 function figure_System_NoError()
   
-  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t)} ", title="Numerial solution of the system of equations of x(t) (with no error bounds)",
+  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t)} ", title="Numerial solution of the system of equations of x(t) (no error bounds)",
   legendfontsize=12,
   tickfont=font(10, "Times"),
   guidefontsize=10,
@@ -160,7 +160,7 @@ end
 # figure with NO error bounds, plot for y
 function figure_System_NoError()
   
-  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{y(t)} ", title="Numerial solution of the system of equations of y(t) (with no error bounds)",
+  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{y(t)} ", title="Numerial solution of the system of equations of y(t) (no error bounds)",
   legendfontsize=12,
   tickfont=font(10, "Times"),
   guidefontsize=10,
@@ -186,21 +186,21 @@ end
 # savefig(fig, joinpath(TARGET_FOLDER, "figure_1a_y_non_error.pdf"))
 
 # figure with error bounds with comparison
-solN4_a1_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, resets=[4.0], alpha=1.0, a=1.0)
-solN4_a2 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=3.0)
-solN4_a2_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, resets=[4.0], alpha=1.0, a=2.0)
-solN4_a2 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=1.4)
-solN4_a2_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, resets=[4.0], alpha=1.0, a=1.4)
+solN4_a1_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, alpha=1.0, a=1.0)
+solN4_a2 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=2.0)
+solN4_a2_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, alpha=1.0, a=2.0)
+solN4_a3 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=3.0)
+solN4_a3_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, alpha=1.0, a=3.0)
 
 function figure_System_withError()
 
-  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations (with error bounds, \n with comparison of different values of a)",
+  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations of x(t) (with error bounds, \n with comparison of different values of a)",
   legendfontsize=12,
   tickfont=font(10, "Times"),
   guidefontsize=10,
   xguidefont=font(10, "Times"),
   yguidefont=font(10, "Times"),
-  xlims= (1.0, 5.0),
+  xlims= (1.0, 6.0),
   ylims = (-0.02, 0.05),
   bottom_margin=5mm,
   left_margin=5mm,
@@ -209,12 +209,14 @@ function figure_System_withError()
   size=(800, 600))
 
   # carleman linearization solution with error bounds
+  plot!(fig, solN4_a3_bloat,  vars=(0, 1), color=:lightblue, lc=:lightblue, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=3.0, N=4, } \alpha=1.0")
   plot!(fig, solN4_a2_bloat,  vars=(0, 1), color=:lightgrey, lc=:lightgrey, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=2.0, N=4, } \alpha=1.0")
   plot!(fig, solN4_a1_bloat,  vars=(0, 1), color=:green, lc=:green, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=4, } \alpha=1.0")
 
   # carleman linearization solution 
   plot!(fig, solN4_a1,  vars=(0, 1), color=:orange, lc=:orange, linewidth=2, label=L"x'=-x+axy \textrm{, a=1.0, N=4, } \alpha=1.0")
   plot!(fig, solN4_a2,  vars=(0, 1), color=:red, lc=:red, linewidth=2, label=L"y'=-2y+2ay^{2} \textrm{, a=2.0, N=4, } \alpha=1.0")
+  plot!(fig, solN4_a1,  vars=(0, 1), color=:blue, lc=:blue, linewidth=2, label=L"x'=-x+axy \textrm{, a=3.0, N=4, } \alpha=1.0")
 
 return fig
 end

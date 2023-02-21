@@ -38,12 +38,12 @@ y' = -2y + \frac{2a}{\alpha} y^2
 \end{cases}
 $$
 
-If we denote the new parameter $b = \frac{a}{\alpha}$, then the system goes back to the original format. Therefore, we can only study the reachability analysis with $b$.
+If we denote the new parameter $k = \frac{a}{\alpha}$, then the system goes back to the original format. Therefore, we can only study the reachability analysis with $b$.
 
 $$
 \begin{cases}
-x' = -x + =bxy\\
-y' = -2y+2by^{2}
+x' = -x + =kxy\\
+y' = -2y+2ky^{2}
 \end{cases}
 $$
 
@@ -66,8 +66,8 @@ And for the nonlinear part we have $F_2 \in \mathbb{R}^{n \times n^{2}}$ matrix:
 $$
 F_2=
 \begin{bmatrix}
-0 & 2b & 0 & 0\\
-0 & 0 & 0 & b
+0 & 2k=\frac{2a}{\alpha} & 0 & 0\\
+0 & 0 & 0 & k=\frac{a}{\alpha}
 \end{bmatrix}.
 $$
 
@@ -76,7 +76,7 @@ For matrix $F_1$ we have the eigenvalues $\lambda_1 = -1$ and $\lambda_2 = -2$. 
 **Definition 1.** System is said to be weakly nonlinear if the ratio
 
 $$
-R:=\frac{\lVert x_0 \rVert \lVert F_2 \rVert}{\left|\Re\left(\lambda_1\right)\right|}
+R:=\frac{\lVert X_0 \rVert \lVert F_2 \rVert}{\left|\Re\left(\lambda_1\right)\right|}
 $$
 
 satisfies $R<1$.
@@ -90,33 +90,61 @@ $$
 **Theorem 1 ([30, Corollary 1])**. Assuming that (1) is weakly nonlinear and dissipative, the error bound associated with the linearized problem (2) truncated at order $N$ satisfies
 
 $$
-\lVert \eta_1(t) \rVert \leq \varepsilon(t):=\lVert x_0 \rVert R^N\left(1-e^{\Re\left(\lambda_1\right) t}\right)^N,
+\lVert \eta_1(t) \rVert \leq \varepsilon(t):=\lVert X_0 \rVert R^N\left(1-e^{\Re\left(\lambda_1\right) t}\right)^N,
 $$
 
 with $R$ as defined in (5). This error bound holds for all $t \geq 0$.
 
-Then we compute the error bound for our example system:
+From the result of [norm test](../Reachability/evaluation/Quadra_exmaple/norm_test.ipynb), we know for $\lVert X_0 \rVert$ is $l_{2}-norm$ and for $\lVert F_2 \rVert$ is $l_{\infty}-norm$. Then we compute the error bound for our example system:
 
 $$
-\lVert F_2 \rVert = sup(F_2) = 2b
+\lVert F_2 \rVert = \max _{1 \leq i, j \leq n}\left|a_{i j}\right| = 2b
 $$
 
-Then we have for $R$:
+We denote $X_{0}=[x_0, y_0]=[x_0, \alpha x_{0}^{2}]$ where $x_{0}$ is the initial value of $x$ and $y_{0}=\alpha x_{0}^{2}$. Then we have:
 
 $$
-R:=\frac{\lVert x_0 \rVert \lVert F_2 \rVert}{\left|\Re\left(\lambda_1\right)\right|} = 2b \lVert x_0 \rVert
+\lVert X_0 \rVert = \lVert [x_0, \alpha x_{0}^{2}] \rVert = \sqrt{x_{0}^{2} + \alpha^2 x_{0}^{4}} = x_{0} \sqrt{1 + \alpha^2 x_{0}^{2}}
 $$
 
-Therefore, we have the formula for error bound:
+Then we can compute the value of $R$:
 
 $$
 \begin{aligned}
-\lVert \eta_{1}(t) \rVert \leq \varepsilon(t)& :=\lVert x_0 \rVert R^N\left(1-e^{\Re\left(\lambda_1\right) t}\right)^N \\
-& = \lVert x_0 \rVert ^{N+1} 2b^{N} \left(1-e^{-t}\right)^{N}
+R &:= \frac{\lVert X_0 \rVert \lVert F_2 \rVert}{\left|\Re\left(\lambda_1\right)\right|}\\
+&= x_{0} \sqrt{1 + \alpha^2 x_{0}^{2}} \cdot 2k\\
+&= x_{0} \sqrt{1 + \alpha^2 x_{0}^{2}} \cdot 2 \frac{a}{\alpha} \\
+& < 1
 \end{aligned}
 $$
 
-Since $N$, $\lVert x_0 \rVert$ are all constant, also function $1-e^{-t}$ is decreasing function. From this we can see that as smaller as $b$ is, the error bound will be smaller. Therefore, we can conclude that the optimal quadratization for the system is $w_{0}=y=\alpha x^{2}$ with $\alpha$, the parameter $\alpha$ we need to choose as large as possible.
+In order to simplify the computation, we assume the value $x_{0}, \alpha, a > 0$, then we have:
+
+$$
+\begin{aligned}
+x_{0} \sqrt{1 + \alpha^2 x_{0}^{2}} \cdot 2 \frac{a}{\alpha} & < 1\\
+1 + \alpha^2 x_{0}^{2} & < \frac{ \alpha^2}{4 a^2 x_{0}^{2}}\\
+4 a^2 x_{0}^{2} &< \alpha^2 (1-4a^{2}x_{0}^{4})
+\end{aligned}
+$$
+
+We have the inequality:
+
+$$
+\alpha > \frac{2ax_{0}}{\sqrt{1-4a^{2}x_{0}^{4}}}
+$$
+
+Then we have the boundary condition that $\alpha > \frac{2ax_{0}}{\sqrt{1-4a^{2}x_{0}^{4}}}$ and $ax_{0}^{2}<\frac{1}{2}$, we can compute the error bound:
+
+$$
+\begin{aligned}
+\lVert \eta_1(t) \rVert \leq \varepsilon(t) & :=\lVert X_0 \rVert R^N\left(1-e^{\Re\left(\lambda_1\right) t}\right)^N\\
+&= \lVert X_0 \rVert ^{N+1} (2 \frac{a}{\alpha})^{N} \left(1-e^{-t}\right)^{N}\\
+&= x_{0}^{N+1} (1+\alpha^{2}x_{0}^{2})^{\frac{N+1}{2}} \frac{(2a)^{N}}{\alpha^{N}} \left(1-e^{-t}\right)^{N}\\
+\end{aligned}
+$$
+
+Since $\alpha$ is our parameter, then we only need to analyze the function $(1+\alpha^{2}x_{0}^{2})^{\frac{N+1}{2}} \frac{1}{\alpha^{N}}$
 
 ---
 

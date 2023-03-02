@@ -103,23 +103,23 @@ rr0 = 0.0
 # _solve_system_carlin_TM(T=30.0, radius0=rr0, trajectories=-1)
 
 # no error bounds, N = 2
-_solve_system_carlin(N=2, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=1.0)
-time_NoError_N2_a1 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=1.0)
+# _solve_system_carlin(N=2, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=1.0)
+# time_NoError_N2_a1 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=1.0)
 
-_solve_system_carlin(N=2, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
-time_NoError_N2_a2 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
+# _solve_system_carlin(N=2, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
+# time_NoError_N2_a2 = @elapsed _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
 
-# no error bounds, N = 4
-_solve_system_carlin(N=4, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
-time_NoError_N4_a2 = @elapsed _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
+# # no error bounds, N = 4
+# _solve_system_carlin(N=4, T=Tmax, δ=0.1, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
+# time_NoError_N4_a2 = @elapsed _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, alpha=1.0, a=5.0)
 
-# including error bounds, N = 5
-_solve_system_carlin(N=5, T=Tmax, δ=0.1, radius0=rr0, bloat=true, alpha=1.0, a=1.0)
-time_Error_N5 = @elapsed _solve_system_carlin(N=5, T=Tmax, δ=0.01, radius0=rr0, bloat=true, alpha=1.0, a=1.0)
+# # including error bounds, N = 5
+# _solve_system_carlin(N=5, T=Tmax, δ=0.1, radius0=rr0, bloat=true, alpha=1.0, a=1.0)
+# time_Error_N5 = @elapsed _solve_system_carlin(N=5, T=Tmax, δ=0.01, radius0=rr0, bloat=true, alpha=1.0, a=1.0)
 
-print(io, "result of N=2, Alpha=1.0, a=1.0, No Error, Computation time: ", (time_NoError_N2_a1), '\n')
-print(io, "result of N=2, Alpha=1.0, a=5.0, No Error, Computation time: ", (time_NoError_N2_a2), '\n')
-print(io, "result of N=4, Alpha=1.0, a=5.0, No Error, Computation time: ", (time_NoError_N4_a2), '\n')
+# print(io, "result of N=2, Alpha=1.0, a=1.0, No Error, Computation time: ", (time_NoError_N2_a1), '\n')
+# print(io, "result of N=2, Alpha=1.0, a=5.0, No Error, Computation time: ", (time_NoError_N2_a2), '\n')
+# print(io, "result of N=4, Alpha=1.0, a=5.0, No Error, Computation time: ", (time_NoError_N4_a2), '\n')
 
 
 # Ploting the results

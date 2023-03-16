@@ -18,11 +18,11 @@ function system_carlin(a, alpha)
 
   F1 = zeros(2, 2)
   F1[1, 1] = -1
-  F1[2, 2] = -2 / alpha
+  F1[2, 2] = -2
 
   F2 = zeros(2, 4) # [x, x⊗x]
   F2[1, 2] = 2 * a / alpha
-  F2[2, 4] = a
+  F2[2, 4] = a / alpha
 
   return F1, F2
 end
@@ -34,8 +34,8 @@ end
 ## Solution with CARLIN
 
 
-function _solve_system_carlin(; N=4, T=30.0, δ=0.1, radius0=0, bloat=false, resets=nothing, alpha, a)
-  x0c = [0.1, 0.01]
+function _solve_system_carlin(; N=4, T=30.0, δ=0.1, radius0=0, bloat=false, resets=nothing, alpha, a, x0=0.1)
+  x0c = [x0, alpha * x0 ^ 2]
 
   F1, F2 = system_carlin(a, alpha)
   R, Re_lambda1 = _error_bound_specabs_R(x0c, F1, F2; check=true)
@@ -201,7 +201,7 @@ function figure_System_withError()
   xguidefont=font(10, "Times"),
   yguidefont=font(10, "Times"),
   xlims= (1.0, 6.0),
-  ylims = (-0.02, 0.05),
+  ylims = (-0.0, 0.2),
   bottom_margin=5mm,
   left_margin=5mm,
   right_margin=5mm,

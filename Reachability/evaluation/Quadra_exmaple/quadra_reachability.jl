@@ -21,7 +21,7 @@ solN2_alpha1_bloat = _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, blo
 
 function figure_System_withError_minimum()
 
-  fig = plot(legend=:bottomright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations of x(t) (with error bounds, \n with comparison of the optimal choice of alpha)",
+  fig = plot(legend=:bottomright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations of x(t) \n (with error bounds, N=2, x0=0.5)",
   legendfontsize=12,
   tickfont=font(10, "Times"),
   guidefontsize=10,
@@ -61,7 +61,7 @@ solN3_alpha1_bloat = _solve_system_carlin(N=3, T=Tmax, δ=0.01, radius0=rr0, blo
 
 function figure_System_withError_minimum2()
 
-  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations of x(t) (with error bounds, \n with comparison of the optimal choice of alpha)",
+  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations of x(t) \n (with error bounds, N=3, x0=0.5)",
   legendfontsize=12,
   tickfont=font(10, "Times"),
   guidefontsize=10,
@@ -77,14 +77,9 @@ function figure_System_withError_minimum2()
 
   # carleman linearization solution with error bounds
   plot!(fig, solN3_alpha1_bloat,  vars=(0, 1), color=:lightblue, lc=:lightblue, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=3, } x_{0}=0.5, \alpha=1.0")
-  plot!(fig, solN3_alpha2_bloat,  vars=(0, 1), color=:grey, lc=:grey, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=3, } x_{0}=0.5, \alpha=2.0")
+  plot!(fig, solN3_alpha2_bloat,  vars=(0, 1), color=:grey, lc=:grey, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=3, } x_{0}=0.5, \alpha=10.0")
   plot!(fig, solN3_minimum_bloat,  vars=(0, 1), color=:green, lc=:green, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=3, } x_{0}=0.5, \alpha=\frac{\sqrt{N}}{x_0}=2\sqrt{3}(minimum)")
 
-
-  # carleman linearization solution 
-  # plot!(fig, solN4_a1,  vars=(0, 1), color=:orange, lc=:orange, linewidth=2, label=L"x'=-x+axy \textrm{, a=1.0, N=4, } \alpha=1.0")
-  # plot!(fig, solN4_a2,  vars=(0, 1), color=:red, lc=:red, linewidth=2, label=L"y'=-2y+2ay^{2} \textrm{, a=2.0, N=4, } \alpha=1.0")
-  # plot!(fig, solN4_a1,  vars=(0, 1), color=:blue, lc=:blue, linewidth=2, label=L"x'=-x+axy \textrm{, a=3.0, N=4, } \alpha=1.0")
 
 return fig
 end
@@ -100,7 +95,7 @@ solN2_alpha1_bloat_x0 = _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, 
 
 function figure_System_withError_minimum3()
 
-  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations of x(t) (with error bounds, \n with comparison of the optimal choice of alpha)",
+  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations of x(t)\n  (with error bounds, N=2, x0=0.25)",
   legendfontsize=12,
   tickfont=font(10, "Times"),
   guidefontsize=10,
@@ -115,15 +110,10 @@ function figure_System_withError_minimum3()
   size=(800, 600))
 
   # carleman linearization solution with error bounds
-  plot!(fig, solN2_alpha1_bloat_x0,  vars=(0, 1), color=:lightblue, lc=:lightblue, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=3, } x_{0}=0.5, \alpha=1.0")
-  plot!(fig, solN2_alpha2_bloat_x0,  vars=(0, 1), color=:grey, lc=:grey, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=3, } x_{0}=0.5, \alpha=2.0")
-  plot!(fig, solN2_minimum_bloat_x0,  vars=(0, 1), color=:green, lc=:green, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=3, } x_{0}=0.5, \alpha=\frac{\sqrt{N}}{x_0}=2\sqrt{3}(minimum)")
+  plot!(fig, solN2_alpha1_bloat_x0,  vars=(0, 1), color=:lightblue, lc=:lightblue, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=2, } x_{0}=0.25, \alpha=1.0")
+  plot!(fig, solN2_alpha2_bloat_x0,  vars=(0, 1), color=:grey, lc=:grey, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=10.0, N=2, } x_{0}=0.25, \alpha=10.0")
+  plot!(fig, solN2_minimum_bloat_x0,  vars=(0, 1), color=:green, lc=:green, linewidth=2, linestyle=:dash, label=L"\textrm{error(x), a=1.0, N=2, } x_{0}=0.25, \alpha=\frac{\sqrt{N}}{x_0}=4\sqrt{2}(minimum)")
 
-
-  # carleman linearization solution 
-  # plot!(fig, solN4_a1,  vars=(0, 1), color=:orange, lc=:orange, linewidth=2, label=L"x'=-x+axy \textrm{, a=1.0, N=4, } \alpha=1.0")
-  # plot!(fig, solN4_a2,  vars=(0, 1), color=:red, lc=:red, linewidth=2, label=L"y'=-2y+2ay^{2} \textrm{, a=2.0, N=4, } \alpha=1.0")
-  # plot!(fig, solN4_a1,  vars=(0, 1), color=:blue, lc=:blue, linewidth=2, label=L"x'=-x+axy \textrm{, a=3.0, N=4, } \alpha=1.0")
 
 return fig
 end

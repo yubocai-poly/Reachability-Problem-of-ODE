@@ -17,7 +17,7 @@ include("../utils.jl")
 function system_carlin(a)
 
   F1 = zeros(2, 2)
-  F1[1, 1] = -a
+  F1[1, 1] = a
   F1[2, 2] = 2 * a
 
   F2 = zeros(2, 4) # [x, x⊗x]
@@ -56,4 +56,12 @@ function _solve_system_carlin(; N=4, T=30.0, δ=0.1, radius0=0, bloat=false, res
   end
 
   return sol
+end
+
+@taylorize function system_equation(dx, x, a)
+  x1, x2 = x # y = x2
+
+  dx[1] = a * x1 - x1 * x2
+  dx[2] = -2 / alpha * x2 + 2 * a * x2^2 / (alpha) ^ 2
+
 end

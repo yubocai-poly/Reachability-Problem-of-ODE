@@ -92,10 +92,6 @@ rr0 = 0.0
 
 # figure with error bounds with comparison
 solN4_a1_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, a=1.0, x0=0.5)
-# solN4_a2 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, a=2.0, x0=0.5)
-# solN4_a2_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, a=2.0, x0=0.5)
-# solN4_a3 = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=false, a=3.0, x0=0.5)
-# solN4_a3_bloat = _solve_system_carlin(N=4, T=Tmax, δ=0.01, radius0=rr0, bloat=true, a=3.0, x0=0.5)
 
 function figure_System_withError()
 

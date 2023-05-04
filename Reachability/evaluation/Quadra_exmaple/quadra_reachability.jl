@@ -21,7 +21,7 @@ solN2_alpha1_bloat = _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, blo
 
 function figure_System_withError_minimum()
 
-  fig = plot(legend=:bottomright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations of x(t) \n (with error bounds, N=2, x0=0.5)",
+  fig = plot(legend=:bottomright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t)} ", title="Numerial solution of the system of equations of x(t) \n (with error bounds, N=2, x0=0.5)",
   legendfontsize=12,
   tickfont=font(10, "Times"),
   guidefontsize=10,
@@ -61,7 +61,7 @@ solN3_alpha1_bloat = _solve_system_carlin(N=3, T=Tmax, δ=0.01, radius0=rr0, blo
 
 function figure_System_withError_minimum2()
 
-  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations of x(t) \n (with error bounds, N=3, x0=0.5)",
+  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t)} ", title="Numerial solution of the system of equations of x(t) \n (with error bounds, N=3, x0=0.5)",
   legendfontsize=12,
   tickfont=font(10, "Times"),
   guidefontsize=10,
@@ -95,7 +95,7 @@ solN2_alpha1_bloat_x0 = _solve_system_carlin(N=2, T=Tmax, δ=0.01, radius0=rr0, 
 
 function figure_System_withError_minimum3()
 
-  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t) or y(t)} ", title="Numerial solution of the system of equations of x(t)\n  (with error bounds, N=2, x0=0.25)",
+  fig = plot(legend=:topright, xlab = L"\textrm{Time t}", ylab = L"\textrm{x(t)} ", title="Numerial solution of the system of equations of x(t)\n  (with error bounds, N=2, x0=0.25)",
   legendfontsize=12,
   tickfont=font(10, "Times"),
   guidefontsize=10,

@@ -78,14 +78,19 @@ Here we call the number $m$ as the **order of quadratization**. The **optimal qu
 </div>
 
 <kbd>Example 3.1</kbd> We illustrate the problem with a simple example of a scalar ODE:
+
 $$
 x' = x^3 
 $$
+
 Since on the right-hand side, the highest degree is $3$, we can introduce a new variable of $y=x^n$ where $n=2,3$. Obviously, introducing $y=x^3$ satisfy the definition of quadrazation, but is not the optimal choice. We introduce a new variable $y:=x^{2}$, then we can write
+
 $$
 x'=xy \quad \text{and} \quad y' = 2xx'=2x^{4}=2y^{2}
 $$
+
 Now, we can build a new ODEs system as:
+
 $$
     \begin{cases}
         x'=xy\\
@@ -104,9 +109,11 @@ $$
 <div style="background-color: rgba(0,250,154, 0.2);border-color:black;margin:20px;padding:10px;border-radius:10px;border-width:2px;border-color:black;width:95%;border: 2.5px solid black;">
 
 <kbd>Definition 3.3 (Represenation of quadratic polynomial DE with Kronecker product)</kbd> For a **quadratic polynomial differential equation** $x'(t)=f(x(t))$, we can represent such a ODE as the following format
+
 $$
 \frac{\mathrm{d} x(t)}{\mathrm{d} t}=F_1 x+F_2 x^{\otimes 2}
 $$
+
 with initial condition $x(0) \in \mathbb{R}^{n}$ and $F_1 \in \mathbb{R}^{n \times n}$ and $F_2 \in \mathbb{R}^{n \times n^{2}}$. $F_1$ and $F_2$ are independent of $t$ and $F_1$ is associated with **linear** behavior of the dynamical system and $F_2$ is the **nonlinear** part.
 
 </div>
@@ -114,12 +121,13 @@ with initial condition $x(0) \in \mathbb{R}^{n}$ and $F_1 \in \mathbb{R}^{n \tim
 <font color=orange>Remark</font> Here we focus on the weakly nonlinear system, therefore $\frac{\|F_2\|_{2}}{\|F_1\|_2}$ should be small since we want the linear part dominate the system of ODEs.
 
 <kbd>Example 3.3</kbd> Assume we have a nonlinear system of ODEs:
-    $$
-    \begin{cases}
+
+$$
+\begin{cases}
             x' = ax + by + cxy + dx^{2} \\
             y' = mx + ny + ky^{2}
-    \end{cases}
-    $$
+\end{cases}
+$$
 
 We have the linear part matrix $F_1$ and nonlinear part matrix $F_2$
 

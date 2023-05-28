@@ -162,11 +162,22 @@ with $R$ as defined in Definition 3.4. This error bound holds for all $t \geq 0$
 
 ### 4. Objective of the project
 
---
+---
 
 <div align=center>
 <img src="graph/process.jpg" width="580" />
 </div>
+
+### 5. Research of 3 examples of typical systems of ODEs
+
+---
+
+In this chapter, we research on three typical differential equations with different characteristics.
+- $x'=-x+ax^{3}$ - **with negative linear part** - [link to the Analysis work](Reachability/evaluation/Quadra_exmaple/)
+- $x'=-x^{3}$ - **with no linear part** - [link to the Analysis work](Reachability/evaluation/Nonlinear_exmaple/)
+- $x'' = kx+ax^{3}+bx'$ - **Duffing oscillator** - [link to the Analysis work](Reachability/evaluation/System_exmaple/)
+
+
 
 ### 5. Bibliography
 

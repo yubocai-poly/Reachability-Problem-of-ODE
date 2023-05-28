@@ -118,7 +118,7 @@ with initial condition $x(0) \in \mathbb{R}^{n}$ and $F_1 \in \mathbb{R}^{n \tim
 
 </div>
 
-<mark>Remark</mark> Here we focus on the weakly nonlinear system, therefore $\frac{\|F_2\|_{2}}{\|F_1\|_2}$ should be small since we want the linear part dominate the system of ODEs.
+**Remark:** Here we focus on the weakly nonlinear system, therefore $\frac{\|F_2\|_{2}}{\|F_1\|_2}$ should be small since we want the linear part dominate the system of ODEs.
 
 <kbd>Example 3.3</kbd> Assume we have a nonlinear system of ODEs:
 
@@ -140,6 +140,14 @@ F_{1} = \begin{bmatrix}
     0 & 0 & 0 & k
 \end{bmatrix}
 $$
+
+<kbd>Definition 1.5 (Weakly nonlinear system)</kbd> The system is said to be weakly nonlinear if the ratio
+
+$$
+R:=\frac{\lVert X_0 \rVert \lVert F_2 \rVert}{\left|\Re\left(\lambda_1\right)\right|}
+$$
+
+satisfies $R<1$. Here $\lambda_1$ is the eigenvalue of $F_1$ with \textbf{the largest} real part, which means if $F_1$ has $n$ eigenvalues, we have $\Re\left(\lambda_n\right) \leq \cdots \leq \Re\left(\lambda_1\right)$ in a sorting way.
 
 
 ### 3. Bibliography

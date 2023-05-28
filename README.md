@@ -44,9 +44,6 @@ Code and Library:
 - [Repeatibility evaluation for "Reachability of weakly nonlinear systems using Carleman linearization" (RP'21) by Marcelo Forets and Christian Schilling.](https://github.com/JuliaReach/RP21_RE)
 - [Qbee](https://github.com/AndreyBychkov/QBee/)
 
-<div align=center>
-<img src="graph/process.jpg" width="580" />
-</div>
 
 ### 3. Introduction to the Problem
 ---
@@ -141,16 +138,37 @@ F_{1} = \begin{bmatrix}
 \end{bmatrix}
 $$
 
-<kbd>Definition 1.5 (Weakly nonlinear system)</kbd> The system is said to be weakly nonlinear if the ratio
+<kbd>Definition 3.4 (Weakly nonlinear system)</kbd> The system is said to be weakly nonlinear if the ratio
 
 $$
 R:=\frac{\lVert X_0 \rVert \lVert F_2 \rVert}{\left|\Re\left(\lambda_1\right)\right|}
 $$
 
-satisfies $R<1$. Here $\lambda_1$ is the eigenvalue of $F_1$ with \textbf{the largest} real part, which means if $F_1$ has $n$ eigenvalues, we have $\Re\left(\lambda_n\right) \leq \cdots \leq \Re\left(\lambda_1\right)$ in a sorting way.
+satisfies $R<1$. Here $\lambda_1$ is the eigenvalue of $F_1$ with **the largest** real part, which means if $F_1$ has $n$ eigenvalues, we have $\Re\left(\lambda_n\right) \leq \cdots \leq \Re\left(\lambda_1\right)$ in a sorting way.
 
+<kbd>Definition 3.5 (Dissipativity)</kbd>  System (1) is said to be dissipative if $\Re\left(\lambda_1\right)<0$ (i.e., the real part of all eigenvalues is negative).
 
-### 3. Bibliography
+$$
+\text{The conditions } \Re\left(\lambda_1\right)<0 \text{ and } R<1 \text{ ensure arbitrary-time convergence.}
+$$
+
+<kbd>Theorem 3.1 (Error bound function)</kbd> Assuming the system is weakly nonlinear and dissipative, the error bound associated with the linearized problem truncated at order $N$ satisfies
+
+$$
+\lVert \eta_1(t) \rVert \leq \varepsilon(t):=\lVert X_0 \rVert R^N\left(1-e^{\Re\left(\lambda_1\right) t}\right)^N,
+$$
+
+with $R$ as defined in Definition 3.4. This error bound holds for all $t \geq 0$.
+
+### 4. Objective of the project
+
+--
+
+<div align=center>
+<img src="graph/process.jpg" width="580" />
+</div>
+
+### 5. Bibliography
 
 ---
 

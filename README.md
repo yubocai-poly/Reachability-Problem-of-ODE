@@ -118,7 +118,7 @@ with initial condition $x(0) \in \mathbb{R}^{n}$ and $F_1 \in \mathbb{R}^{n \tim
 
 </div>
 
-<font color=orange>Remark</font> Here we focus on the weakly nonlinear system, therefore $\frac{\|F_2\|_{2}}{\|F_1\|_2}$ should be small since we want the linear part dominate the system of ODEs.
+<mark>Remark</mark> Here we focus on the weakly nonlinear system, therefore $\frac{\|F_2\|_{2}}{\|F_1\|_2}$ should be small since we want the linear part dominate the system of ODEs.
 
 <kbd>Example 3.3</kbd> Assume we have a nonlinear system of ODEs:
 

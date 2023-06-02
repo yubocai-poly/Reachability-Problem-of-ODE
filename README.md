@@ -177,9 +177,11 @@ In this chapter, we research on three typical differential equations with differ
 - $x'=-x^{3}$ - **with no linear part** - [link to the Analysis work](Reachability/evaluation/Nonlinear_exmaple/)
 - $x'' = kx+ax^{3}+bx'$ - **Duffing oscillator** - [link to the Analysis work](Reachability/evaluation/System_exmaple/)
 
+### 6. Expansion to the general case
 
+---
 
-### 5. Bibliography
+### 7. Bibliography
 
 ---
 

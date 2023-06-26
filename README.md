@@ -189,8 +189,7 @@ In this chapter, we research on three typical differential equations with differ
 
 <div style="background-color: rgba(255,182,193, 0.2);border-color:black;margin:20px;padding:10px;border-radius:10px;border-width:2px;border-color:black;width:95%;border: 2.5px solid black;">
 
-<kbd>Theorem 6.2</kbd> Let $v_{1}, \ldots, v_{N}$ be the new variables that we introduced in a monomial quadratization of a dissipative ODE system. If for each $i, v_i$ is quadratic in $v_1, \ldots, v_N, x_1, \ldots, x_n
-$, then the quadratic system satisfied by $x_1, \ldots, x_n, v_1, \ldots, v_N$ can be chosen to be dissipative as well.
+<kbd>Theorem 6.2</kbd> Let $v_{1}, \ldots, v_{N}$ be the new variables that we introduced in a monomial quadratization of a dissipative ODE system. If for each $i, v_i$ is quadratic in $v_1, \ldots, v_N, x_1, \ldots, x_n$, then the quadratic system satisfied by $x_1, \ldots, x_n, v_1, \ldots, v_N$ can be chosen to be dissipative as well.
 
 ### 7. Bibliography
 
